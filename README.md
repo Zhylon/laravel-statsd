@@ -58,6 +58,14 @@ class ProcessesOrders
 }
 ```
 
+Or use the `Statsd` facade wherever constructor injection is inconvenient:
+
+```php
+use Zhylon\LaravelStatsd\Facades\Statsd;
+
+Statsd::increment('orders.processed');
+```
+
 | Method                                                                 | Metric type   | Description                             |
 |------------------------------------------------------------------------|---------------|-----------------------------------------|
 | `increment(string $metric, int $value = 1, float $sampleRate = 1.0)`   | Counter (`c`) | Increments a counter by `$value`        |

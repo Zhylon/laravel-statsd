@@ -11,7 +11,7 @@
     },
     "authors": [
         {
-            "name": "Toby Maxham",
+            "name": "TobyMaxham",
             "homepage": "https://zhylon.net",
             "role": "Developer"
         }
@@ -45,7 +45,10 @@
         "laravel": {
             "providers": [
                 "Zhylon\\LaravelStatsd\\StatsdServiceProvider"
-            ]
+            ],
+            "aliases": {
+                "Statsd": "Zhylon\\LaravelStatsd\\Facades\\Statsd"
+            }
         }
     },
     "minimum-stability": "stable",
