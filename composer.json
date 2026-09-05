@@ -1,0 +1,59 @@
+{
+    "name": "zhylon/laravel-statsd",
+    "description": "Fire-and-forget StatsD metrics for Laravel, built for Netdata's built-in StatsD collector.",
+    "type": "library",
+    "license": "MIT",
+    "keywords": ["zhylon", "statsd", "netdata", "laravel", "metrics"],
+    "homepage": "https://github.com/Zhylon/laravel-statsd",
+    "support": {
+        "issues": "https://github.com/Zhylon/laravel-statsd/issues",
+        "source": "https://github.com/Zhylon/laravel-statsd"
+    },
+    "authors": [
+        {
+            "name": "Toby Maxham",
+            "homepage": "https://zhylon.net",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.2",
+        "illuminate/contracts": "^12.0 || ^13.0",
+        "illuminate/support": "^12.0 || ^13.0"
+    },
+    "require-dev": {
+        "laravel/pint": "^1.30",
+        "orchestra/testbench": "^10.0 || ^11.0",
+        "pestphp/pest": "^3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Zhylon\\LaravelStatsd\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Zhylon\\LaravelStatsd\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": [
+            "./vendor/bin/pest tests/"
+        ]
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Zhylon\\LaravelStatsd\\StatsdServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    }
+}
