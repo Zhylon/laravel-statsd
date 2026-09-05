@@ -15,7 +15,12 @@ class StatsdServiceProvider extends ServiceProvider
             $shouldFire = config('statsd.enabled') && ! $this->app->runningUnitTests();
 
             return $shouldFire
-                ? new UdpStatsdClient(config('statsd.host'), (int) config('statsd.port'), config('statsd.prefix', ''))
+                ? new UdpStatsdClient(
+                    config('statsd.host'),
+                    (int) config('statsd.port'),
+                    config('statsd.prefix', ''),
+                    (float) config('statsd.timeout', 0.1),
+                )
                 : new NullStatsdClient;
         });
     }

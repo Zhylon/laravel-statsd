@@ -117,3 +117,21 @@ it('never fails when nothing is listening on the target port', function () {
 
     expect(fn () => $client->increment('jobs.processed'))->not->toThrow(Throwable::class);
 });
+
+it('defaults the socket timeout to 0.1 seconds', function () {
+    $client = new UdpStatsdClient('127.0.0.1', 8125);
+
+    $property = new ReflectionProperty($client, 'timeout');
+    $property->setAccessible(true);
+
+    expect($property->getValue($client))->toBe(0.1);
+});
+
+it('accepts a custom socket timeout', function () {
+    $client = new UdpStatsdClient('127.0.0.1', 8125, timeout: 2.5);
+
+    $property = new ReflectionProperty($client, 'timeout');
+    $property->setAccessible(true);
+
+    expect($property->getValue($client))->toBe(2.5);
+});

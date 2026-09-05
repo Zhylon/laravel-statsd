@@ -79,6 +79,7 @@ The package binds a `NullStatsdClient` automatically whenever `$app->runningUnit
 | `enabled` | `STATSD_ENABLED` | `true`      | Master switch. When `false`, the null client is bound.        |
 | `host`    | `STATSD_HOST`    | `127.0.0.1` | UDP host of the StatsD server                                 |
 | `port`    | `STATSD_PORT`    | `8125`      | UDP port of the StatsD server                                 |
+| `timeout` | `STATSD_TIMEOUT` | `0.1`       | Socket timeout in seconds for opening the UDP connection      |
 | `prefix`  | `STATSD_PREFIX`  | `''`        | Prepended to every metric name, e.g. `myapp.orders.processed` |
 
 ## Testing

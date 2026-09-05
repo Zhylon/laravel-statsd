@@ -20,6 +20,7 @@ class UdpStatsdClient implements StatsdClient
         protected string $host,
         protected int $port,
         protected string $prefix = '',
+        protected float $timeout = 0.1,
     ) {}
 
     public function increment(string $metric, int $value = 1, float $sampleRate = 1.0): void
@@ -75,6 +76,6 @@ class UdpStatsdClient implements StatsdClient
             return $this->socket;
         }
 
-        return $this->socket = @fsockopen('udp://'.$this->host, $this->port, $errno, $errstr, 0.1);
+        return $this->socket = @fsockopen('udp://'.$this->host, $this->port, $errno, $errstr, $this->timeout);
     }
 }

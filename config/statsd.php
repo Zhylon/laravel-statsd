@@ -26,6 +26,17 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Timeout
+    |--------------------------------------------------------------------------
+    |
+    | Socket timeout in seconds for opening the UDP connection. This is not
+    | a per-packet send timeout — UDP writes don't block — it only bounds
+    | how long fsockopen() may take, so it can stay very low.
+    */
+    'timeout' => (float) env('STATSD_TIMEOUT', 0.1),
+
+    /*
+    |--------------------------------------------------------------------------
     | Prefix
     |--------------------------------------------------------------------------
     |
